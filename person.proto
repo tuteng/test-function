@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_outer_classname = "PersonEntity";
+option java_package = "io.streamnative";
+
+message Person {
+    int32 id = 1;
+    string name = 2;
+    repeated string email = 3;
+    map<string, string> addresses = 4;
+
+    enum PhoneType {
+        MOBILE = 0;
+        HOME = 1;
+        WORK = 2;
+    }
+
+    message PhoneNumber {
+        string number = 1;
+        PhoneType type = 2;
+    }
+}
